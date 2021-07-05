@@ -1,3 +1,4 @@
+
 /node_modules
 /public/hot
 /public/storage
@@ -17,3 +18,11 @@ yarn-error.log
 public/css
 public/js
 
+storage/app/.gitignore
+storage/app/public/.gitignore
+
+storage/framework/.gitignore
+storage/framework/cache/.gitignore
+storage/framework/sessions/.gitignore
+storage/framework/testing/.gitignore
+storage/framework/views/.gitignore
