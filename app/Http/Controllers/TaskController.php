@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use App\Http\Requests\RequestTask;
+
 use Throwable;
+
 class TaskController extends Controller
 {
     public function index()
@@ -19,11 +21,10 @@ class TaskController extends Controller
         return view('task.addtask');
     }
     
-
     public function store(RequestTask $request)
     {
         $this->insertOrUpdate($request);
-        return redirect()->route('home')->with('success', 'Add task success !');
+        return redirect()->route('home')->with('success', trans('auth.successAdd'));
     }
 
     public function edit($id)
@@ -41,7 +42,7 @@ class TaskController extends Controller
     public function update(RequestTask $request, $id)
     {
        $this->insertOrUpdate($request,$id);
-       return redirect()->route('home')->with('success', 'Update task success !');
+       return redirect()->route('home')->with('success', trans('auth.successUpd'));
     }
 
     public function insertOrUpdate($request, $id=null)
