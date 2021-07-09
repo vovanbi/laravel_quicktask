@@ -4,8 +4,8 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th class="action"> Action</th>
+          <th scope="col">@lang('auth.name')</th>
+          <th class="action">@lang('auth.action')</th>
         </tr>
       </thead>
       <tbody>
@@ -21,7 +21,7 @@
                      </a>
                      <a href="{{ route('task.edit',$task->id)}}" title="Edit" class="btn btn-info">
                          <i class="fa fa-pencil" aria-hidden="true"></i>
-                         Update
+                         @lang('auth.update')
                      </a>
                     </span>
                   </td>
@@ -32,3 +32,4 @@
     </table>
 
 @stop
+

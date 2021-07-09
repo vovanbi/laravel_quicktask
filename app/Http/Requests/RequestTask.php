@@ -20,8 +20,8 @@ class RequestTask extends FormRequest
     public function messages()
     {
         return [
-            'name.required'=>'This field cannot be empty !',
-            'name.unique'=>'This field already exists !',
+            'name.required'=> trans('auth.required'),
+            'name.unique'=> trans('auth.unique'),
         ];
     }
 }

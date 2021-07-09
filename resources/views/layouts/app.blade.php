@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>Laravel QuickTask</title>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('')}}css/bootstrap.min.css">
@@ -16,7 +17,32 @@
          <span class="add">
         	<a href="{{ route('task.create')}}">
         	<i class="fa fa-plus-circle" aria-hidden="true"></i>
-            </a>
+         </a>
+        </span>
+        <span class="float-left h5">
+        	<div class="btn-group">
+				<div class="dropdown">
+				   @php $locale = session()->get('locale'); @endphp
+			      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+			         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+			          @switch($locale)
+			              @case('vi')
+			              <img src="{{asset('image/vi.png')}}"> VN
+			              @break
+			              @case('en')
+			              <img src="{{asset('image/en.png')}}"> English
+			              @break
+			              @default
+			              <img src="{{asset('image/vi.png')}}"> VN
+			          @endswitch
+			          <span class="caret"></span>
+			      </a>
+			      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+			          <a class="dropdown-item" href="{{ route('change-language',['vi'])}}"><img src="{{asset('image/vi.png')}}"> VN</a>
+			          <a class="dropdown-item" href="{{route('change-language',['en'])}}"><img src="{{asset('image/en.png')}}"> English</a>
+			      </div>
+			   </div>
+		  </div>
         </span>
 		</h3>
 		 @include('layouts.notification')
